@@ -1,103 +1,77 @@
+
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="HHh LpR fFf">
+
+    <q-header elevated class="bg-primary text-white">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
+        <q-btn dense flat round icon="menu" @click="left = !left" />
         <q-toolbar-title>
-          Quasar App
+          <q-btn flat label="Blog" size="20px" to="dash"/>
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        v.0.1
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+    <q-drawer show-if-above v-model="left" side="left" behavior="desktop" elevated bordered
+    content-class="bg-grey-3" overlay>
+       <q-scroll-area class="fit">
+          <q-list v-for="(menuItem, index) in menuList" :key="index">
+            <q-item clickable :active="menuItem.label === 'Outbox'" :to="menuItem.id">
+              <q-item-section avatar>
+                <q-icon :name="menuItem.icon" />
+              </q-item-section>
+              <q-item-section>
+                {{ menuItem.label }}
+              </q-item-section>
+            </q-item>
+           <q-separator v-if="menuItem.separator" />
+          </q-list>
+        </q-scroll-area>
     </q-drawer>
 
     <q-page-container>
       <router-view />
     </q-page-container>
+
   </q-layout>
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink'
+const menuList = [
+  {
+    id: 'dash',
+    icon: 'dashboard',
+    label: 'DashBoard',
+    separator: true
+  },
+  {
+    id: 'post',
+    icon: 'view_agenda',
+    label: 'Posts',
+    separator: false
+  },
+  {
+    id: 'postcreate',
+    icon: 'add_circle_outline',
+    label: 'New Posts',
+    separator: false
+  },
+  {
+    id: 'postview',
+    icon: 'pageview',
+    label: 'Show Post',
+    separator: false
+  }
+]
 
 export default {
-  name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
   data () {
     return {
-      leftDrawerOpen: false,
-      essentialLinks: [
-        {
-          title: 'Docs',
-          caption: 'quasar.dev',
-          icon: 'school',
-          link: 'https://quasar.dev'
-        },
-        {
-          title: 'Github',
-          caption: 'github.com/quasarframework',
-          icon: 'code',
-          link: 'https://github.com/quasarframework'
-        },
-        {
-          title: 'Discord Chat Channel',
-          caption: 'chat.quasar.dev',
-          icon: 'chat',
-          link: 'https://chat.quasar.dev'
-        },
-        {
-          title: 'Forum',
-          caption: 'forum.quasar.dev',
-          icon: 'record_voice_over',
-          link: 'https://forum.quasar.dev'
-        },
-        {
-          title: 'Twitter',
-          caption: '@quasarframework',
-          icon: 'rss_feed',
-          link: 'https://twitter.quasar.dev'
-        },
-        {
-          title: 'Facebook',
-          caption: '@QuasarFramework',
-          icon: 'public',
-          link: 'https://facebook.quasar.dev'
-        }
-      ]
+      left: false,
+      drawer: false,
+      menuList
     }
   }
 }
+
 </script>
