@@ -7,19 +7,11 @@
             {{response.title}}
           </div>
         </q-img>
-        <div class="q-pl-md q-pt-xs">
-         {{response.category}}
-        </div>
+        <div class="q-pl-md q-pt-xs">{{response.category}}</div>
         <!-- content -->
-        <q-card-section class="q-pb-md text_align" >
-            {{ response.content }}
-        </q-card-section>
-
+        <q-card-section class="q-pb-md text_align" >{{ response.content }}</q-card-section>
         <q-separator />
-
-        <div class="q-pl-md q-pt-md q-gutter-md row justify-center">
-
-        </div>
+        <div class="q-pl-md q-pt-md q-gutter-md row justify-center"></div>
         <!-- dialog de Delete -->
         <div class="q-pa-md q-gutter-sm">
           <q-dialog v-model="persistent" persistent transition-show="scale" transition-hide="scale">
@@ -27,15 +19,10 @@
               <q-card-section>
                 <div class="text-h6">Delete</div>
               </q-card-section>
-
-              <q-card-section class="q-pt-none">
-                Do you really want to delete your post?
-              </q-card-section>
-
+              <q-card-section class="q-pt-none">Do you really want to delete your post?</q-card-section>
               <q-card-actions align="right" class="bg-white text-teal">
                 <q-btn push label="No" v-close-popup />
-                <q-btn  push color="red" label="Delete" type="Delete"
-                :to="{ name: 'PostDelete', params: { id: response.id }}"/>
+                <q-btn  push color="red" label="Delete" type="Delete" :to="{ name: 'PostDelete', params: {id: response.id } }"/>
               </q-card-actions>
             </q-card>
           </q-dialog>

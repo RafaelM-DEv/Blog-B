@@ -11,7 +11,6 @@
                     <div class="text-h7 q-mt-sm q-mb-xs">{{ post.title }}</div>
                     <div class="text-caption text-grey" >{{post.description}}</div>
                   </q-card-section>
-
                   <q-card-section class="col-5 flex flex-center">
                     <q-img class="rounded-borders" :src="post.image" />
                   </q-card-section>
@@ -71,5 +70,4 @@ export default {
     )
   }
 }
-
 </script>

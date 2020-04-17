@@ -1,10 +1,15 @@
 <template>
+  <q-page>
   <q-banner inline-actions class="text-white bg-red">
    Your Post has been Deleted
     <template v-slot:action>
       <q-btn flat color="white" label="ok" :to="{name: 'PostList'}"/>
     </template>
   </q-banner>
+  <div class="row justify-center q-pt-xl">
+  <q-img src="https://image.flaticon.com/icons/svg/1632/1632602.svg"
+  style="width: 200px; height: 200px;"/></div>
+  </q-page>
 </template>
 
 <style lang="scss" scoped>
