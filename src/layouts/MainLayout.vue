@@ -1,4 +1,3 @@
-
 <template>
   <q-layout view="HHh LpR fFf">
 
@@ -12,17 +11,17 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="left" side="left" behavior="desktop" elevated bordered
-    content-class="bg-grey-3" overlay>
+    <q-drawer show-if-above v-model="left" side="left" behavior="desktop" elevated bordered content-class="bg-grey-3" overlay
+     :mini="miniState" @mouseover="miniState = false" @mouseout="miniState = true" mini-to-overlay>
        <q-scroll-area class="fit">
           <q-list v-for="(menuItem, index) in menuList" :key="index">
-            <q-item clickable :active="menuItem.label === 'Outbox'" :to="menuItem.id">
-              <q-item-section avatar>
-                <q-icon :name="menuItem.icon" />
-              </q-item-section>
-              <q-item-section>
-                {{ menuItem.label }}
-              </q-item-section>
+            <q-item clickable :active="menuItem.label === 'Outbox'" :to=" { name: menuItem.name }">
+                <q-item-section avatar>
+                  <q-icon :name="menuItem.icon" />
+                </q-item-section>
+                <q-item-section>
+                  {{ menuItem.label }}
+                </q-item-section>
             </q-item>
            <q-separator v-if="menuItem.separator" />
           </q-list>
@@ -39,27 +38,21 @@
 <script>
 const menuList = [
   {
-    id: 'dash',
+    name: 'Dashboard',
     icon: 'dashboard',
     label: 'DashBoard',
     separator: true
   },
   {
-    id: 'post',
+    name: 'PostList',
     icon: 'view_agenda',
     label: 'Posts',
     separator: false
   },
   {
-    id: 'postcreate',
+    name: 'PostNew',
     icon: 'add_circle_outline',
     label: 'New Posts',
-    separator: false
-  },
-  {
-    id: 'postview',
-    icon: 'pageview',
-    label: 'Show Post',
     separator: false
   }
 ]
@@ -69,7 +62,8 @@ export default {
     return {
       left: false,
       drawer: false,
-      menuList
+      menuList,
+      miniState: true
     }
   }
 }

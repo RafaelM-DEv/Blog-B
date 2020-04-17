@@ -1,13 +1,13 @@
-
 const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: 'dash', component: () => import('pages/Dashboard.vue') },
-      { path: 'post', component: () => import('pages/posts/PostList.vue') },
-      { path: 'postcreate', component: () => import('pages/posts/PostCreate.vue') },
-      { path: 'postview', component: () => import('pages/posts/PostShow.vue') }
+      { path: 'pages', name: 'Dashboard', component: () => import('pages/Dashboard.vue') },
+      { path: 'posts', name: 'PostList', component: () => import('pages/posts/PostList.vue') },
+      { path: 'posts/PostCreate', name: 'PostNew', component: () => import('pages/posts/PostCreate.vue') },
+      { path: 'posts/:id', name: 'PostShow', component: () => import('pages/posts/PostShow.vue') },
+      { path: 'posts/PostDelete/:id', name: 'PostDelete', component: () => import('pages/posts/PostDelete.vue') }
     ]
   }
 ]
