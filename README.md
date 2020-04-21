@@ -1,16 +1,16 @@
 # Blog-B
  
  Estou Desenvolvendo esse blog para aprender a utilizar e desenvolver com :
- Quasar CLI
- Vue.js
- VueX 
- Axios 
- Vue Router
- Boas Práticas em Progrogramação 
- Endentação de código 
- Usando Eslint 
+ Quasar CLI | 
+ Vue.js | 
+ VueX | 
+ Axios | 
+ Vue Router | 
+ Boas Práticas em Progrogramação | 
+ Endentação de código | 
+ Usando Eslint  |
  
- a baixo está o desafio proposto 
+abaixo está o desafio proposto => 
  
 # Blog Vuejs + Quasar Framework + Cypress + Git Flow
 
@@ -31,13 +31,12 @@ Obs: Crie o Layout, as páginas, os componentes e deixe o vuex
 para o final, e lembre-se do repositorio seguir o git flow.
 
 # Referências 
-Vue: https://vuejs.org/
-Vue Router: https://router.vuejs.org/
-Vuex: https://vuex.vuejs.org/
-Quasar: https://quasar.dev/
-Cypress: https://www.cypress.io/
-axios: https://github.com/axios/axios
-Use a API: https://jsonplaceholder.typicode.com/
-GitFlow:https://www.atlassian.com/git/tutorials/comparing-workflows/gitfl
-ow-workflow
+Vue: https://vuejs.org/ | 
+Vue Router: https://router.vuejs.org/ | 
+Vuex: https://vuex.vuejs.org/ | 
+Quasar: https://quasar.dev/ | 
+Cypress: https://www.cypress.io/ |
+axios: https://github.com/axios/axios |
+Use a API: https://jsonplaceholder.typicode.com/ |
+GitFlow:https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow |
  
