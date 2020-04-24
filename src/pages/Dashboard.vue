@@ -20,7 +20,7 @@ export default {
       onSuccess (response) {
         console.log(response)
       },
-      onErro (err) {
+      onError (err) {
         console.log(err)
       }
     })

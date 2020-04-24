@@ -1,13 +1,13 @@
 import api from './api'
 
-export default async function (apiName, { id, payload, onErro, onSuccess } = {}) {
+export default async function (apiName, { id, payload, onError, onSuccess } = {}) {
   let response = null
 
   try {
     response = await api[apiName](payload || id)
-  } catch (erro) {
-    if (typeof onErro === 'function') {
-      onErro(erro)
+  } catch (error) {
+    if (typeof onError === 'function') {
+      onError(error)
     }
   }
 

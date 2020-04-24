@@ -14,11 +14,11 @@ export default {
   deletePost (id) {
     return axios.delete(`posts/${id}`)
   },
-
-  updatePost (id) {
-    return axios.put(`posts/${id}`)
+  // atualiza os Dados dos Posts
+  updatePost (post) {
+    return axios.put(`posts/${post.id}`, post)
   },
-
+  // Cria um Post
   createPost (posts) {
     return axios.post('/posts', posts)
   }
