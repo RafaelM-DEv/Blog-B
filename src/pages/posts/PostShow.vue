@@ -1,9 +1,9 @@
 <template>
   <q-page class="row justify-center">
-    <div class="row justify-center q-pb-md q-pt-md full-width no-wrap">
-      <q-card class="my-card q-pb-md col-6" >
+    <div class="row justify-center q-pb-md q-pt-md fit full-width no-wrap">
+      <q-card class="my-card q-pb-md col-6 ">
         <!-- img -->
-        <q-img  :src="response.image" contain>
+        <q-img :ratio="16/9" :src="response.image" contain>
           <div class="absolute-bottom text-h6 text-subtitle1 text-center">{{ response.title }}</div>
         </q-img>
         <!-- Category -->
@@ -25,10 +25,6 @@
     </q-page-sticky>
   </q-page>
 </template>
-
-<style lang="scss">
-
-</style>
 
 <script>
 import handleApi from '../../helper/handleApi'
@@ -55,7 +51,6 @@ export default {
       id: this.$route.params.id,
       onSuccess ({ data }) {
         self.response = data
-        console.log(self.response)
       },
       onError (error) {
         console.log(error)

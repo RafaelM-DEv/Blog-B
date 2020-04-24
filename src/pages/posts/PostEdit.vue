@@ -1,40 +1,39 @@
 <template>
   <div class="row justify-center">
-    <div class="col-md-7 col-sm-6 col-xs-12 ">
-      <div class="q-pa-md q-pt-md form__size" >
+    <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
+      <div class="q-pa-md q-pt-md">
         <q-form @submit.prevent="onSubmit" @reset="onReset" class="q-gutter-md">
           <!-- Form Title-->
-          <q-input filled v-model="post.title"  :value="response.title" label="Title" hint="What is the title of your post?" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']"/>
+          <q-input filled v-model="post.title" maxlength="50" counter :value="response.title" label="Title" hint="What is the title of your post?" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']"/>
           <!-- Form Description-->
           <q-input v-model="post.description" maxlength="100"  filled type="textarea" hint="what's the resume? " counter/>
-          <!-- EDITOR content-->
-          <q-editor v-model="post.content" toolbar-bg="grey-6" toolbar-text-color="white" toolbar-toggle-color="red-5" min-height="5rem" />
           <!-- Form category-->
           <q-select filled v-model="post.category" :options="options" label="Category"
           hint="what is the category of your post?"/>
           <!-- Form image-->
           <q-input v-model="post.image" filled label="Image URL" type="url" hint="what will be the image of your post?" />
+          <!-- EDITOR content-->
+          <q-editor v-model="post.content" toolbar-bg="grey-10" toolbar-text-color="white" toolbar-toggle-color="red-5" min-height="5rem" />
           <!-- Form Btn-->
           <div>
             <q-btn label="Save" type="submit" color="primary"/>
             <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
           </div>
-          <div>{{response.id}}</div>
         </q-form>
       </div>
     </div>
     <!-- dialog de Create -->
     <div class="q-pa-md q-gutter-sm">
       <q-dialog v-model="persistent" persistent transition-show="scale" transition-hide="scale">
-        <q-card class="bg-orange text-white" style="width: 300px">
+        <q-card class="bg-orange text-white">
           <q-card-section class="row justify-center q-pt-xl q-pb-md" >
-            <q-img src="https://image.flaticon.com/icons/svg/1102/1102457.svg" style="width: 100px; height: 100px;"/>
+            <q-img :ratio="16/9" contain src="https://image.flaticon.com/icons/svg/1102/1102457.svg" />
           </q-card-section>
           <q-card-section class="q-pt-sm row justify-center">
             your post was edited
           </q-card-section>
-          <q-card-actions align="right" class="bg-white text-teal">
-            <q-btn  push color="dark" label="ok" type="ok" :to="{ name: 'PostList'}"/>
+          <q-card-actions align="center" class="bg-white text-teal">
+            <q-btn push color="dark" label="ok" type="ok" :to="{ name: 'PostList'}"/>
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -69,7 +68,7 @@ export default {
   // Variaveis computadas escutam as mudanças de uma determinada variavel, ela
   computed: {
     id () {
-      return this.$route.params.id || ''
+      return this.$route.params.id
     }
   },
 
@@ -79,10 +78,9 @@ export default {
       id: this.id,
       onSuccess ({ data }) {
         self.post = extend(true, {}, data)
-        console.log(self.post)
       },
-      onError (err) {
-        console.log(err)
+      onError (erro) {
+        console.log(erro)
       }
     })
   },
@@ -93,7 +91,6 @@ export default {
         payload: this.post,
         onSuccess ({ data }) {
           self.response = data
-          console.log(self.response)
         },
         onError (erro) {
           console.log(erro)
@@ -104,6 +101,7 @@ export default {
     },
 
     onReset () {
+      // FAZER UM FOR LUPANDO O OBJETO E SETANDO O VALOR NULL
       this.post.url = null
       this.post.text = null
       this.post.title = null
@@ -113,9 +111,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.form__size{
-  width: 750px;
-}
-</style>

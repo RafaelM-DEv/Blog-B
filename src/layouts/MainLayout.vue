@@ -1,12 +1,12 @@
 <template>
   <q-layout view="HHh LpR fFf">
-    <q-header elevated class="bg-primary text-white">
+    <q-header elevated class="bg-primary  text-white">
       <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="left = !left" />
+        <q-btn dense flat round icon="menu" @click="ShowMenu" />
         <q-toolbar-title>
           <q-btn flat label="Blog" size="20px" :to="{name: 'Dashboard' }"/>
         </q-toolbar-title>
-        <q-badge outline color="red" label="v.1.0" />
+        <q-badge outline color="red" label="v.1.1" />
       </q-toolbar>
       <q-linear-progress dark :value="1"  color="red" class="q-mt-xs" />
     </q-header>
@@ -14,7 +14,7 @@
     <q-drawer show-if-above v-model="left" side="left" behavior="desktop" elevated bordered content-class="bg-grey-3" overlay :mini="miniState" @mouseover="miniState = false" @mouseout="miniState = true" mini-to-overlay>
       <q-scroll-area class="fit">
         <q-list v-for="(menuItem, index) in menuList" :key="index">
-          <q-item clickable :active="menuItem.label === 'Outbox'" :to=" { name: menuItem.name }">
+          <q-item clickable :to="{ name: menuItem.name }">
             <q-item-section avatar>
               <q-icon :name="menuItem.icon" />
             </q-item-section>
@@ -48,7 +48,7 @@ const menuList = [
     separator: false
   },
   {
-    name: 'PostNew',
+    name: 'PostCreate',
     icon: 'add_circle_outline',
     label: 'New Posts',
     separator: false
@@ -62,6 +62,12 @@ export default {
       drawer: false,
       menuList,
       miniState: true
+    }
+  },
+
+  methods: {
+    ShowMenu () {
+      this.left = !this.left
     }
   }
 }
