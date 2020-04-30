@@ -4,7 +4,7 @@
       <div class="q-pa-md q-pt-md">
         <q-form @submit.prevent="onSubmit" @reset="onReset" class="q-gutter-md">
           <!-- Form Title-->
-          <q-input filled v-model="post.title" maxlength="50" counter :value="response.title" label="Title" hint="What is the title of your post?" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']"/>
+          <q-input filled v-model="post.title" maxlength="50" counter :value="post.title" label="Title" hint="What is the title of your post?" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']"/>
           <!-- Form Description-->
           <q-input v-model="post.description" maxlength="100"  filled type="textarea" hint="what's the resume? " counter/>
           <!-- Form category-->
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import handleApi from '../../helper/handleApi'
+import { mapActions } from 'vuex'
 import { extend } from 'quasar'
 
 export default {
@@ -58,7 +58,6 @@ export default {
         image: '',
         content: ''
       },
-      response: [],
       options: [
         'Games', 'News', 'Tecnology', 'Life'
       ],
@@ -73,37 +72,36 @@ export default {
   },
 
   created () {
-    const self = this
-    handleApi('getPost', {
-      id: this.id,
-      onSuccess ({ data }) {
-        self.post = extend(true, {}, data)
-      },
-      onError (erro) {
-        console.log(erro)
-      }
-    })
+    this.fetch()
+    console.log(this.fetch())
   },
 
   methods: {
-    onSubmit () {
-      handleApi('updatePost', {
-        payload: this.post,
-        onSuccess ({ data }) {
-          self.response = data
-        },
-        onError (erro) {
-          console.log(erro)
-        }
+    ...mapActions([
+      'GET_POST',
+      'UPDATE_POST'
+    ]),
+
+    async fetch () {
+      try {
+        const { data } = await this.GET_POST(this.id)
+        this.post = extend(true, {}, data)
+      } catch (error) {
+        console.log(error)
       }
-      )
+    },
+
+    onSubmit () {
+      this.UPDATE_POST(this.post)
       this.persistent = true
     },
 
     onReset () {
-      for (var prop in this.post) {
-        this.post[prop] = ''
-      }
+      this.post.category = ''
+      this.post.title = ''
+      this.post.description = ''
+      this.post.image = ''
+      this.post.content = ''
     }
   }
 }

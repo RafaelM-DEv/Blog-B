@@ -1,4 +1,4 @@
-import api from '../../helper/api'
+// import api from '../../helper/api'
 import handleApi from '../../helper/handleApi'
 
 const state = {
@@ -12,37 +12,39 @@ const getters = {
 }
 
 const actions = {
-  getPosts ({ commit }) {
+  GET_POSTS ({ commit }) {
     handleApi('getPosts', {
       onSuccess ({ data }) {
-        commit('setPosts', data)
+        commit('SET_POSTS', data)
         return data
       }
     })
   },
 
-  // TODO PASSAR ESSA FUNCTION COM O HANDLE FAZENDO A MESMA VERIFICAÇÃO NO STATE
-  getPost ({ commit, state }, id) {
-    return new Promise((resolve, reject) => {
-      const filtered = state.posts.find(posts => posts.id === id)
-      if (filtered) {
-        commit('setPost', filtered)
-        return resolve({ data: filtered })
-      }
+  GET_POST ({ commit, state }, id) {
+    const filtered = state.posts.find(posts => posts.id === id)
+    if (filtered) {
+      commit('SET_POST', filtered)
+      return ({ data: filtered })
+    }
+  },
 
-      api.getPost(id).then(response => {
-        commit('setPost', response.data)
-        resolve(response)
-      }, error => reject(error))
+  UPDATE_POST ({ commit }, payload) {
+    handleApi('updatePost', {
+      payload,
+      onSuccess ({ data }) {
+        commit('UPDATE_POST', payload)
+        return data
+      }
     })
   },
 
-  deletePost ({ commit }, id) {
+  DELETE_POST ({ commit }, id) {
     const postindex = state.posts.findIndex(posts => posts.id === id)
     handleApi('deletePost', {
       id: id,
       onSuccess ({ data }) {
-        commit('clearPosts', postindex)
+        commit('DELETE_POST', postindex)
         return data
       }
     })
@@ -50,15 +52,21 @@ const actions = {
 }
 
 const mutations = {
-  setPosts (state, posts) {
+  SET_POSTS (state, posts) {
     state.posts = posts
   },
 
-  setPost (state, post) {
+  SET_POST (state, post) {
     state.post = post
   },
 
-  clearPosts (state, postindex) {
+  UPDATE_POST (state, payload) {
+    const postindex = state.posts.findIndex(post => post.id === payload.id)
+    state.posts.splice(postindex, 1, payload)
+    state.post = payload
+  },
+
+  DELETE_POST (state, postindex) {
     state.posts.splice(postindex, 1)
   }
 

@@ -77,9 +77,11 @@ export default {
     },
 
     onReset () {
-      for (var prop in this.post) {
-        this.post[prop] = ''
-      }
+      this.post.category = ''
+      this.post.title = ''
+      this.post.description = ''
+      this.post.image = ''
+      this.post.content = ''
     }
   }
 }

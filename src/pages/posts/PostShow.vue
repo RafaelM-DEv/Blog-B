@@ -18,7 +18,7 @@
     <!-- Buttons stick -->
     <q-page-sticky  position="bottom-right" :offset="[20, 10]">
       <q-fab v-model="ButtonStick" label="close" external-label label-position="left" icon="add" direction="up" color="dark">
-        <q-fab-action label="Back" :to="{ name: 'vuex'}" color="primary" icon="arrow_back" external-label label-position="left"/>
+        <q-fab-action label="Back" :to="{ name: 'PostList'}" color="primary" icon="arrow_back" external-label label-position="left"/>
         <q-fab-action label="Edit" color="primary" icon="edit" external-label label-position="left" :to="{ name: 'PostEdit', params: { id: post.id } }"/>
         <Delete @success="success" tag="q-fab-action" external-label label-position="left" color="primary" icon="delete_forever" :id="post.id || ''" />
       </q-fab>
@@ -33,6 +33,11 @@ import Delete from '../../components/Delete'
 
 export default {
   name: 'PostShow',
+  data () {
+    return {
+      ButtonStick: false
+    }
+  },
 
   components: {
     Delete
@@ -45,12 +50,6 @@ export default {
     }
   },
 
-  data () {
-    return {
-      ButtonStick: false
-    }
-  },
-
   created () {
     this.getPost(this.id)
   },
@@ -59,6 +58,7 @@ export default {
     ...mapActions([
       'getPost'
     ]),
+
     success (event) {
       this.$router.push({ name: 'PostList' })
       this.$q.notify({

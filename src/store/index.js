@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import Posts from './module/Posts'
+import posts from './module/posts'
 
 Vue.use(Vuex)
 
 export default function () {
   const Store = new Vuex.Store({
     modules: {
-      Posts
+      posts
     },
 
     // for dev mode only

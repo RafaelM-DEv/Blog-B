@@ -6,7 +6,7 @@
         <q-toolbar-title>
           <q-btn flat label="Blog" size="20px" :to="{name: 'Dashboard' }"/>
         </q-toolbar-title>
-        <q-badge outline color="red" label="v.1.2" />
+        <q-badge outline color="red" label="v.1.3" />
       </q-toolbar>
       <q-linear-progress dark :value="1"  color="red" class="q-mt-xs" />
     </q-header>

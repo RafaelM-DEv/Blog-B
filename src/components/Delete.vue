@@ -17,6 +17,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+
 export default {
   // OS COMPONENTES PRECISÃO TER PROPRIEDADES NAS QUAIS IRÃO RECEBER UM VALOR DE ACORDO COM O SEU TIPO
   props: {
@@ -44,18 +45,18 @@ export default {
   },
 
   methods: {
+    ...mapActions([
+      'DELETE_POST'
+    ]),
+
     async onDelete () {
       try {
-        const response = await this.deletePost(this.id)
+        const response = await this.DELETE_POST(this.id)
         this.$emit('success', response)
       } catch (error) {
         this.$emit('error', error)
       }
     },
-
-    ...mapActions([
-      'deletePost'
-    ]),
 
     showDialog () {
       this.dialog = !this.dialog

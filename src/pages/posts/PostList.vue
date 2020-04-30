@@ -41,13 +41,12 @@ export default {
   },
 
   created () {
-    this.getPosts()
+    this.GET_POSTS()
   },
 
   methods: {
     ...mapActions([
-      'clearPosts',
-      'getPosts'
+      'GET_POSTS'
     ]),
     success (event) {
       this.$q.notify({
