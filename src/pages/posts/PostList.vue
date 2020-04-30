@@ -18,7 +18,7 @@
             <q-card-actions align="left" class="q-pt-sm q-pl-md q-pb-md q-gutter-md" >
               <q-btn push label="Show" color="dark" :to="{ name: 'PostShow', params: { id: post.id } }" />
               <q-btn push label="Edit" color="dark"  :to="{ name: 'PostEdit', params: { id: post.id } }" />
-              <Delete push @success="success" color="dark" :id="post.id" />
+              <Delete push @success="success" color="dark" :id="post.id || ''" />
             </q-card-actions>
           </q-card>
         </div>

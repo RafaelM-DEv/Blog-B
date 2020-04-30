@@ -29,6 +29,20 @@ const actions = {
     }
   },
 
+  SET_POST ({ commit }, payload) {
+    handleApi('createPost', {
+      payload,
+      onSuccess ({ data }) {
+        commit('SET_POSTS', data)
+        return data
+      },
+      onError (erro) {
+        console.log(erro)
+      }
+    }
+    )
+  },
+
   UPDATE_POST ({ commit }, payload) {
     handleApi('updatePost', {
       payload,

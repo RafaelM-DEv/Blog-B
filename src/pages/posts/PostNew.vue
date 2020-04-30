@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import handleApi from '../../helper/handleApi'
+import { mapActions } from 'vuex'
 
 export default {
   data () {
@@ -54,7 +54,6 @@ export default {
         image: '',
         content: ''
       },
-      response: [],
       options: [
         'Games', 'News', 'Tecnology', 'Life'
       ],
@@ -62,17 +61,12 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'SET_POST'
+    ]),
+
     onSubmit () {
-      handleApi('createPost', {
-        payload: this.post,
-        onSuccess ({ data }) {
-          self.response = data
-        },
-        onError (erro) {
-          console.log(erro)
-        }
-      }
-      )
+      this.SET_POST(this.post)
       this.persistent = true
     },
 

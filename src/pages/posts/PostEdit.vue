@@ -73,7 +73,6 @@ export default {
 
   created () {
     this.fetch()
-    console.log(this.fetch())
   },
 
   methods: {
