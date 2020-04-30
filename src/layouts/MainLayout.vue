@@ -6,7 +6,7 @@
         <q-toolbar-title>
           <q-btn flat label="Blog" size="20px" :to="{name: 'Dashboard' }"/>
         </q-toolbar-title>
-        <q-badge outline color="red" label="v.1.1" />
+        <q-badge outline color="red" label="v.1.2" />
       </q-toolbar>
       <q-linear-progress dark :value="1"  color="red" class="q-mt-xs" />
     </q-header>
@@ -41,16 +41,17 @@ const menuList = [
     label: 'DashBoard',
     separator: true
   },
-  {
-    name: 'PostList',
-    icon: 'view_agenda',
-    label: 'Posts',
-    separator: false
-  },
+
   {
     name: 'PostCreate',
     icon: 'add_circle_outline',
     label: 'New Posts',
+    separator: false
+  },
+  {
+    name: 'PostList',
+    icon: 'view_agenda',
+    label: 'Posts',
     separator: false
   }
 ]

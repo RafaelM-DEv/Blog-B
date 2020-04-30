@@ -65,7 +65,7 @@ export default {
       persistent: false
     }
   },
-  // Variaveis computadas escutam as mudanças de uma determinada variavel, ela
+
   computed: {
     id () {
       return this.$route.params.id
@@ -101,12 +101,9 @@ export default {
     },
 
     onReset () {
-      // FAZER UM FOR LUPANDO O OBJETO E SETANDO O VALOR NULL
-      this.post.url = null
-      this.post.text = null
-      this.post.title = null
-      this.post.resume = null
-      this.post.category = null
+      for (var prop in this.post) {
+        this.post[prop] = ''
+      }
     }
   }
 }

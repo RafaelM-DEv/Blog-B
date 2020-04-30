@@ -1,6 +1,4 @@
 <template>
-  <!-- V-bind = $ attrs vai receber os atributos que estão na tag html -->
-  <!-- is = "tag" vai mudar a tag component de acordo com seu valor -->
   <component  :is="tag"  v-bind="$attrs" :label="label" :id="id" @click="showDialog">
     <q-dialog v-model="dialog" persistent transition-show="scale" transition-hide="scale">
       <q-card class="bg-red text-white" style="width: 300px">
@@ -18,12 +16,11 @@
 </template>
 
 <script>
-import handleApi from '../helper/handleApi'
-
+import { mapActions } from 'vuex'
 export default {
-  // os componentes precisão ter uma props
+  // OS COMPONENTES PRECISÃO TER PROPRIEDADES NAS QUAIS IRÃO RECEBER UM VALOR DE ACORDO COM O SEU TIPO
   props: {
-    // contem as variaveis que contem valores padrões e ou são obrigatórias
+    // CONTEM AS VARIAVEIS QUE POSSUEM SEUS TIPOS
     label: {
       type: String,
       default: 'Delete'
@@ -33,7 +30,7 @@ export default {
       type: [String, Number],
       required: true
     },
-    // a tag muda o tipo da marcação html, o padrão é ser um botão
+    // A TAG MUDA O TIPO DA MARCAÇÃO HTML, O PADRÃO É SER UM BOTÃO NESSE CASO
     tag: {
       type: String,
       default: 'q-btn'
@@ -47,24 +44,19 @@ export default {
   },
 
   methods: {
-    // metodo onDelete recebe a variavel id do props
-    onDelete () {
-      const self = this
-      // eslint-disable-next-line dot-notation
-      handleApi('deletePost', {
-        id: self.id,
-        onSuccess ({ data }) {
-          self.$emit('success', data)
-          console.log(data)
-        },
-        onError (error) {
-          self.$emit('error', error)
-        }
+    async onDelete () {
+      try {
+        const response = await this.deletePost(this.id)
+        this.$emit('success', response)
+      } catch (error) {
+        this.$emit('error', error)
       }
-      )
     },
 
-    // metodo de mostrar o dialog
+    ...mapActions([
+      'deletePost'
+    ]),
+
     showDialog () {
       this.dialog = !this.dialog
     }

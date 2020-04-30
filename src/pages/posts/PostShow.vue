@@ -1,33 +1,34 @@
 <template>
   <q-page class="row justify-center">
     <div class="row justify-center q-pb-md q-pt-md fit full-width no-wrap">
-      <q-card class="my-card q-pb-md col-6 ">
+      <q-card class="my-card q-pb-md col-lg-5 col-md-6 col-sm-9 col-xs-12 ">
         <!-- img -->
-        <q-img :ratio="16/9" :src="response.image" contain>
-          <div class="absolute-bottom text-h6 text-subtitle1 text-center">{{ response.title }}</div>
+        <q-img :ratio="16/9" :src="post.image" contain>
+          <div class="absolute-bottom text-h6 text-subtitle1 text-center">{{ post.title }}</div>
         </q-img>
         <!-- Category -->
-        <div class="q-pl-md q-pt-xs">{{ response.category }}</div>
+        <div class="q-pl-md q-pt-xs">{{ post.category }}</div>
         <!-- Content -->
-        <q-card-section class="q-pb-md" v-html=" response.content " />
+        <q-card-section class="q-pb-md" v-html=" post.content " />
         <q-separator />
-        <!-- vou colocar um rating no final do post -->
+        <!--  TODO COLOCAR UM RATING NO FINAL DO POST -->
         <div class="q-pt-md" />
       </q-card>
     </div>
     <!-- Buttons stick -->
-    <q-page-sticky  position="top-right" :offset="[38, 18]">
-      <q-fab v-model="fab1" label="options" icon="add" direction="down" color="dark">
-        <q-fab-action label="Back" :to="{ name: 'PostList'}" color="primary" icon="arrow_back" external-label label-position="left"/>
-        <q-fab-action label="Edit" color="primary" icon="edit" external-label label-position="left" :to="{ name: 'PostEdit', params: { id: response.id } }"/>
-        <Delete @success="success" tag="q-fab-action" external-label label-position="left" color="primary" icon="delete_forever" :id="response.id" />
+    <q-page-sticky  position="bottom-right" :offset="[20, 10]">
+      <q-fab v-model="ButtonStick" label="close" external-label label-position="left" icon="add" direction="up" color="dark">
+        <q-fab-action label="Back" :to="{ name: 'vuex'}" color="primary" icon="arrow_back" external-label label-position="left"/>
+        <q-fab-action label="Edit" color="primary" icon="edit" external-label label-position="left" :to="{ name: 'PostEdit', params: { id: post.id } }"/>
+        <Delete @success="success" tag="q-fab-action" external-label label-position="left" color="primary" icon="delete_forever" :id="post.id || ''" />
       </q-fab>
     </q-page-sticky>
+    <!-- Buttons stick -->
   </q-page>
 </template>
 
 <script>
-import handleApi from '../../helper/handleApi'
+import { mapActions, mapGetters } from 'vuex'
 import Delete from '../../components/Delete'
 
 export default {
@@ -37,36 +38,33 @@ export default {
     Delete
   },
 
-  data () {
-    return {
-      fab1: false,
-      response: []
-    }
-  },
-
-  created () {
-    const self = this
-    // eslint-disable-next-line dot-notation
-    handleApi('getPost', {
-      id: this.$route.params.id,
-      onSuccess ({ data }) {
-        self.response = data
-      },
-      onError (error) {
-        console.log(error)
-      }
-    })
-  },
-
   computed: {
+    ...mapGetters(['post']),
     id () {
       return this.$route.params.id
     }
   },
 
+  data () {
+    return {
+      ButtonStick: false
+    }
+  },
+
+  created () {
+    this.getPost(this.id)
+  },
+
   methods: {
+    ...mapActions([
+      'getPost'
+    ]),
     success (event) {
       this.$router.push({ name: 'PostList' })
+      this.$q.notify({
+        type: 'negative',
+        message: 'DELETED'
+      })
     }
   }
 }
