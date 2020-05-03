@@ -55,7 +55,7 @@ export default {
         content: ''
       },
       options: [
-        'Games', 'News', 'Tecnology', 'Life'
+        'Games', 'News', 'Tecnology', 'Life', 'To Do'
       ],
       persistent: false
     }

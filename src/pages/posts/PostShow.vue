@@ -51,12 +51,12 @@ export default {
   },
 
   created () {
-    this.getPost(this.id)
+    this.GET_POST(this.id)
   },
 
   methods: {
     ...mapActions([
-      'getPost'
+      'GET_POST'
     ]),
 
     success (event) {

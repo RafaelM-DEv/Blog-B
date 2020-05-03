@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "category": "News",
+      "title": "Fazer site com design do spotfy ",
+      "description": "Re-criar a página principal do spotfy usando HTML+CSS+JS mais detalhes na descrição ",
+      "image": "https://www.flaticon.com/br/premium-icon/icons/svg/2585/2585161.svg",
+      "content": "<div style=\"text-align: center;\"><b>Réplica Spotify com css/sass e javascript puro</b></div><div style=\"text-align: left;\">&nbsp; Crie uma réplica do site do spotify utilizando somente css com sass e javascript puro (js é\npara a criação do menu responsivo), o site deve ser o mais parecido possível com o site\noriginal, tanto em desktop quanto em mobile (precisa ser responsivo).&nbsp;</div><div style=\"text-align: left;\">&nbsp; Utilize o site do\nspotify como referência para o layout, cores e imagens mas NÃO COPIE OS ESTILOS\nCSS, uma vez que o intuito deste projeto é melhorar as habilidades com css e\nresponsividade.&nbsp;</div><div style=\"text-align: left;\">&nbsp; Para o padrão de nomenclaturas de classes css use o BEM.\nObs: A réplica deve ser somente da home, links de menus de outras páginas internas\ndevem ser apenas decorativos.&nbsp;</div><div style=\"text-align: left;\">&nbsp; Prazo: O prazo máximo para o desenvolvimento desse projeto é de 5 dias.&nbsp;</div><div style=\"text-align: left;\">&nbsp;<b> Links úteis</b>:</div><div style=\"text-align: left;\">&nbsp;● CSS: https://www.w3schools.com/&nbsp;</div><div style=\"text-align: left;\"><br></div><div style=\"text-align: left;\">&nbsp;● jogo rapido de flexbox: https://flexboxfroggy.com/&nbsp;</div><div style=\"text-align: left;\"><br></div><div style=\"text-align: left;\">&nbsp;● flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/</div><div style=\"text-align: left;\"><br></div><div style=\"text-align: left;\">&nbsp;● propriedade classList do javascript para usar quando for criar o menu resposivo:&nbsp;</div><div style=\"text-align: left;\">&nbsp; &nbsp; https://developer.mozilla.org/pt-/docs/Web/API/Element/classList</div><div style=\"text-align: left;\"><br></div><div style=\"text-align: left;\">&nbsp;● media query para responsividade:\nhttps://developer.mozilla.org/pt-BR/docs/Web/Guide/CSS/CSS_Media_queries&nbsp;</div><div style=\"text-align: left;\"><br></div><div style=\"text-align: left;\">&nbsp;● BEM: https://9elements.com/bem-cheat-sheet/ /\nhttps://pt.slideshare.net/RolandLsslein/bem-css-seriously&nbsp;</div><div style=\"text-align: left;\"><br></div><div style=\"text-align: left;\">&nbsp;● spotify: https://www.spotify.com/br/</div>",
+      "id": 5
+    },
+    {
+      "category": "To Do",
+      "title": "Fazer um café ",
+      "description": "Fazer um café e tomar pra relaxar ",
+      "image": "https://image.flaticon.com/icons/svg/723/723490.svg",
+      "content": "Bora fazer um cafézinho",
+      "id": 6
+    }
+  ]
+}
