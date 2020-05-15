@@ -8,7 +8,7 @@
         <q-card-section class="q-pt-none">Do you really want to delete your post?</q-card-section>
         <q-card-actions align="right" class="bg-white text-teal">
           <q-btn push label="No" v-close-popup />
-          <q-btn push color="red" label="Delete" type="Delete" @click="onDelete"/>
+          <q-btn push color="red" name="Delete" label="Delete" type="Delete" @click="onDelete"/>
         </q-card-actions>
       </q-card>
     </q-dialog>

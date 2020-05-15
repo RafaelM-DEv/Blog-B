@@ -4,16 +4,15 @@
       <div class="q-pa-md q-pt-md">
         <q-form @submit.prevent="onSubmit" @reset="onReset" class="q-gutter-md">
           <!-- Form Title-->
-          <q-input filled v-model="post.title" maxlength="50" counter :value="post.title" label="Title" hint="What is the title of your post?" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']"/>
+          <q-input class="post-title" filled v-model="post.title" maxlength="50" counter :value="post.title" name="Post Title" label="Post Title" hint="What is the title of your post?" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']"/>
           <!-- Form Description-->
-          <q-input v-model="post.description" maxlength="100"  filled type="textarea" hint="what's the resume? " counter/>
+          <q-input class="post-description" filled v-model="post.description" maxlength="100" name="description" type="textarea" label="Resume" hint="what's the resume? " counter/>
           <!-- Form category-->
-          <q-select filled v-model="post.category" :options="options" label="Category"
-          hint="what is the category of your post?"/>
+          <q-select class="post-category" filled v-model="post.category" :options="options" label="Category" hint="what is the category of your post?"/>
           <!-- Form image-->
-          <q-input v-model="post.image" filled label="Image URL" type="url" hint="what will be the image of your post?" />
+          <q-input class="post-image" v-model="post.image" filled label="Image URL" type="url" hint="what will be the image of your post?" />
           <!-- EDITOR content-->
-          <q-editor v-model="post.content" toolbar-bg="grey-10" toolbar-text-color="white" toolbar-toggle-color="red-5" min-height="5rem" />
+          <q-editor class="post-content" data-content="content" v-model="post.content" toolbar-bg="grey-10" toolbar-text-color="white" toolbar-toggle-color="red-5" min-height="5rem" />
           <!-- Form Btn-->
           <div>
             <q-btn label="Save" type="submit" color="primary"/>
@@ -33,7 +32,7 @@
             your post was edited
           </q-card-section>
           <q-card-actions align="center" class="bg-white text-teal">
-            <q-btn push color="dark" label="ok" type="ok" :to="{ name: 'PostList'}"/>
+            <q-btn data-dialog="ok" push color="dark" label="ok" type="ok" :to="{ name: 'PostList'}"/>
           </q-card-actions>
         </q-card>
       </q-dialog>
