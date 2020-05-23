@@ -11,6 +11,8 @@
           <q-select class="post-category" filled v-model="post.category" :options="options" label="Category" hint="what is the category of your post?"/>
           <!-- Form image-->
           <q-input class="post-image" v-model="post.image" filled label="Image URL" type="url" hint="what will be the image of your post?" />
+          <a href="https://www.flaticon.com/br/" target="_blank" style="text-decoration: none;">
+          <q-btn class="q-mt-md" color="primary"> Icones</q-btn></a>
           <!-- EDITOR content-->
           <q-editor class="post-content" data-content="content" v-model="post.content" toolbar-bg="grey-10" toolbar-text-color="white" toolbar-toggle-color="red-5" min-height="5rem" />
           <!-- Form Btn-->

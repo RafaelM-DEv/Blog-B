@@ -10,11 +10,27 @@
     },
     {
       "category": "To Do",
-      "title": "Fazer um café ",
-      "description": "Fazer um café e tomar pra relaxar ",
-      "image": "https://image.flaticon.com/icons/svg/723/723490.svg",
-      "content": "Bora fazer um cafézinho",
-      "id": 6
+      "title": "Sprint 19",
+      "description": "Tela de Premiação",
+      "image": "https://image.flaticon.com/icons/svg/2833/2833509.svg",
+      "content": "Criar helpers/methods ---&gt; AwardModule.js<div>Criar Modulo em store/modules ---&gt; AwardList.js</div><div><br></div><div>Usar o componente Delete - tem o visual diferente do que foi passado no Mockup&nbsp;</div><div><br></div><div>Componente ListView - Entender melhor como funciona a parte de Filtro ( precisa ter a <b>entidade</b></div><div><br></div><div>fazer o $router.quary</div><div><br></div><div>scream quasar pesquis</div><div><br></div><div>ver layout web - cauê</div><div><br></div><div><br></div>",
+      "id": 7
+    },
+    {
+      "category": "To Do",
+      "title": "Seminário Gerênciamento de Banco de Dados",
+      "description": "Tema : Banco de Dados Criminal",
+      "image": "https://image.flaticon.com/icons/svg/2883/2883944.svg",
+      "content": "Pesquisar sobre Banco de Dados Criminal&nbsp;<div>Livros</div><div>Docs</div><div>Artigos&nbsp;</div><div>Casos</div>",
+      "id": 8
+    },
+    {
+      "category": "To Do",
+      "title": "Sprint 19",
+      "description": "Tela de Listagem de Premiações ",
+      "image": "https://image.flaticon.com/icons/svg/2979/2979357.svg",
+      "content": "2 commits",
+      "id": 9
     }
   ]
 }
