@@ -1,5 +1,7 @@
 <template>
-<q-page class="bg-grey-9 row items-center justify-center q-pt-xl">
+<q-page class="area flex content-center">
+  <div class="flex row fit justify-center">
+    <ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
     <div class="bg-white shadow-10 col-4 create animate__animated animate__bounceIn">
       <div class="q-pa-md">
         <div class="flex justify-center">
@@ -10,10 +12,10 @@
           <q-input class="q-pt-md" filled v-model="name" label="Name" type="text" hint="User Name" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type your Name']"/>
           <q-input filled v-model="email" :error='asErrorMail' :error-message='erro' label="E-mail" type="email" hint="User e-mail" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type your email']"/>
           <q-input v-model="password" :error='asErrorPass' :error-message='erro' label="Password" filled :type="isPwd ? 'password' : 'text'" hint="User Password">
-        <template v-slot:append>
-          <q-icon :name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd"/>
-        </template>
-      </q-input>
+            <template v-slot:append>
+              <q-icon :name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd"/>
+            </template>
+          </q-input>
           <!-- Form Btn-->
           <div>
             <q-btn label="Create" @click="signup" type="button" color="primary" />
@@ -21,8 +23,9 @@
           </div>
         </q-form>
       </div>
-    <q-linear-progress dark :value="1"  color="red" class="q-mt-xs" />
+      <q-linear-progress dark :value="1"  color="red" class="q-mt-xs" />
     </div>
+  </div>
 </q-page>
 </template>
 

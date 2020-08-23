@@ -7,6 +7,36 @@
       "image": "https://image.flaticon.com/icons/svg/2920/2920329.svg",
       "content": "Desenvolver tela de login usando firebase&nbsp;<div><a href=\"https://imasters.com.br/front-end/criando-uma-aplicacao-vue-js-com-o-sistema-de-autenticacao-firebase\">https://imasters.com.br/front-end/criando-uma-aplicacao-vue-js-com-o-sistema-de-autenticacao-firebase</a><br></div>",
       "id": 1
+    },
+    {
+      "category": "To Do",
+      "title": "TO-DO List",
+      "description": "Criar um TO-DO list para nosso Blog",
+      "image": "https://image.flaticon.com/icons/svg/1039/1039328.svg",
+      "content": "Criar um to-do list completo&nbsp;",
+      "id": 2
+    }
+  ],
+  "todos": [
+    {
+      "Text": "Fazer validações do usuário",
+      "done": false,
+      "id": 1
+    },
+    {
+      "Text": "Definir restante das informações do usuário",
+      "done": false,
+      "id": 2
+    },
+    {
+      "Text": "Montar dashboard ",
+      "done": false,
+      "id": 3
+    },
+    {
+      "Text": "ajustar responsividade dos novos elementos",
+      "done": false,
+      "id": 4
     }
   ]
 }

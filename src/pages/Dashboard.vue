@@ -1,35 +1,46 @@
 <template>
-  <q-page row class="q-pt-xl " style="text-align: center;">
-   <div class="row justify-center q-pt-xl q-pb-md">
-     <q-img v-if="authUser()" src="https://image.flaticon.com/icons/svg/1606/1606452.svg" style="width: 200px; height: 200px;"/>
+  <q-page row class="q-pt-xl flex justify-center " >
+    <div class="row justify-center">
+      <div class="col-6 ">
+        <q-card dark bordered class="bg-grey-9  my-card">
+        <q-card-section>
+          <div class="text-h6">Nota do Dev</div>
+          <div class="text-subtitle2">by Rafael Martins</div>
+        </q-card-section>
+        <q-separator dark inset />
+        <q-card-section>
+          Obrigrado por usar Meu SPA, ele serviu e ainda serve como um projeto base onde aprendi os primeiros conceitos sobre programação, espero que ele ainda seja utilizado como
+          base para futuras aplicações e consultas. Tenho que agradecer aqueles que me ajudaram muito e não deram tudo de mão beijada, me deixaram quebrar a cabeça na teoria e na prática
+          e hoje só tenho que agradecer por terem me mostrado o caminho e a oportuinidade.
+        </q-card-section>
+        <q-separator dark inset />
+        <q-card-section>
+          "Nunca desista dos seus sonhos, se falhar não desista, falhar faz parte da jornada. Que a Força esteja com você!"
+        </q-card-section>
+        </q-card>
+    </div>
    </div>
-   <p>Sorry...Page in construction</p>
+
   </q-page>
 </template>
 
 <script>
-import firebase from 'firebase'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Dashboard',
-  data () {
-    return {
-      user: ''
-    }
+  computed: {
+    ...mapGetters(['user'])
   },
 
   created () {
-    this.authUser()
+    this.singIn()
   },
 
-  computed: {
-  },
   methods: {
-    authUser () {
-      const user = firebase.auth().currentUser
-      return user
-    }
+    ...mapActions(['singIn'])
   }
+
 }
 
 </script>

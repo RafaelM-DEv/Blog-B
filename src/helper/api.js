@@ -22,5 +22,22 @@ export default {
   // CRIA UM POST
   createPost (posts) {
     return axios.post('/posts', posts)
+  },
+
+  // TO-DO List
+  getTodos () {
+    return axios.get('/todos')
+  },
+
+  createTodo (todos) {
+    return axios.post('/todos', todos)
+  },
+
+  updateTodo (todo) {
+    return axios.put(`todos/${todo.id}`, todo)
+  },
+
+  deleteTodo (id) {
+    return axios.delete(`todos/${id}`)
   }
 }
