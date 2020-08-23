@@ -4,8 +4,16 @@ import routes from './routes'
 import firebase from 'firebase'
 
 Vue.use(VueRouter)
+
 var firebaseConfig = {
-//  your config firebase API
+  apiKey: 'AIzaSyDEGGmdQfblu2l9NeUDykUgJz6jI-L3VTc',
+  authDomain: 'financyify.firebaseapp.com',
+  databaseURL: 'https://financyify.firebaseio.com',
+  projectId: 'financyify',
+  storageBucket: 'financyify.appspot.com',
+  messagingSenderId: '742017757321',
+  appId: '1:742017757321:web:1674fcec06ed5f91d09658',
+  measurementId: 'G-6T6EMTGBYD'
 }
 
 firebase.initializeApp(firebaseConfig)

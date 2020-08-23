@@ -1,31 +1,38 @@
 <template>
   <q-layout view="HHh LpR fFf">
     <q-header elevated class="bg-primary  text-white">
-          <!-- TODO Verificar se tem alguma condição para quando estiver no modo browser -->
-         <q-bar v-if="this.$q.electron" class="q-electron-drag">
-          <q-icon name="laptop_chromebook" />
-          <div>Blog</div>
 
-          <q-space />
+        <!-- barra de ferramentas do electron -->
+      <q-bar v-if="this.$q.electron" class="q-electron-drag">
+        <q-icon name="laptop_chromebook" />
+        <div>Blog</div>
 
-          <q-btn dense flat icon="minimize" @click="minimize" />
-          <q-btn dense flat icon="crop_square" @click="maximize" />
-          <q-btn dense flat icon="close" @click="closeApp" />
-        </q-bar>
+        <q-space />
+
+        <q-btn dense flat icon="minimize" @click="minimize" />
+        <q-btn dense flat icon="crop_square" @click="maximize" />
+        <q-btn dense flat icon="close" @click="closeApp" />
+      </q-bar>
+
+      <!-- barra de ferramentas da web -->
       <q-toolbar v-if="!loginPage && !signupPage">
         <q-btn dense flat round icon="menu" @click="ShowMenu" />
         <q-toolbar-title>
           <q-btn flat label="HOME" size="20px" :to="{name: 'Dashboard' }"/>
         </q-toolbar-title>
-        <q-badge outline color="red" label="v.1.3" />
+         <q-icon name="img:https://jafapps.com.br/wp-content/uploads/2019/01/jafapps_.png" size="30px" />
+         <span class="q-mr-md">Autenticado com Firebase</span>
+
+        {{ user.user.email }}
         <q-btn class="q-ml-md" round>
           <q-avatar size="42px">
             <img src="https://image.flaticon.com/icons/svg/3048/3048127.svg">
           </q-avatar>
+          <q-menu>
+            <q-btn  label="logout" @click="logout"/>
+          </q-menu>
         </q-btn>
-        <!-- login button -->
-         <!-- <q-btn v-if="!authUser()" flat label="login" size="15px" :to="{name: 'LoginPage' }"/> -->
-         <q-btn  @click="logout" flat label="logout" size="15px" :to="{name: 'LoginPage' }"/>
+        <q-badge class="q-ml-sm" outline color="red" label="v.1.3" />
       </q-toolbar>
       <q-linear-progress dark :value="1"  color="red" class="q-mt-xs" />
     </q-header>
@@ -34,7 +41,6 @@
     <template v-if="show">
     <q-drawer v-if="!loginPage && !signupPage" show-if-above v-model="left" side="left" behavior="desktop" elevated bordered content-class="bg-grey-3" overlay :mini="miniState" @mouseover="miniState = false" @mouseout="miniState = true" mini-to-overlay>
       <q-scroll-area class="fit">
-        <!-- TODO fazer outra validação -->
         <div>
           <q-list v-for="(menuItem, index) in menuList" :key="index">
             <q-item clickable :to="{ name: menuItem.name }">
@@ -61,6 +67,8 @@
 
 <script>
 import firebase from 'firebase'
+import { mapGetters, mapActions } from 'vuex'
+
 const menuList = [
   {
     name: 'Dashboard',
@@ -79,34 +87,19 @@ const menuList = [
     icon: 'add_circle_outline',
     label: 'New Posts',
     separator: false
+  },
+  {
+    name: 'todolist',
+    icon: 'playlist_add_check',
+    label: 'TO-DO List',
+    separator: false
   }
 ]
 
 export default {
-  data () {
-    return {
-      show: false,
-      left: false,
-      drawer: false,
-      menuList,
-      miniState: true,
-      user: {
-        displayName: '',
-        email: '',
-        emailVerified: '',
-        photoURL: '',
-        isAnonymous: '',
-        uid: '',
-        providerData: ''
-      }
-    }
-  },
-
-  created () {
-
-  },
 
   computed: {
+    ...mapGetters(['user']),
 
     loginPage () {
       const loginpage = this.$route.name === 'LoginPage'
@@ -119,9 +112,32 @@ export default {
     }
   },
 
+  data () {
+    return {
+      show: false,
+      left: false,
+      drawer: false,
+      menuList,
+      miniState: true
+    }
+  },
+
+  created () {
+    this.singIn()
+    this.isLoged()
+  },
+
   methods: {
+    ...mapActions(['singIn']),
+
+    isLoged () {
+      if (!this.user) {
+        this.$router.replace({ name: 'LoginPage' })
+      }
+    },
+
     logout () {
-      firebase.auth().signOut().then(function () {
+      firebase.auth().signOut().then(() => {
         this.$router.replace({ name: 'LoginPage' })
       })
     },
