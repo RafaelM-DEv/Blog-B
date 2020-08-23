@@ -11,7 +11,8 @@ const routes = [
       { path: 'posts/:id/edit', name: 'PostEdit', component: () => import('pages/posts/PostEdit.vue') },
       { path: '/posts', name: 'PostList', component: () => import('pages/posts/PostList.vue') },
       { path: '/login', name: 'LoginPage', component: () => import('pages/Login.vue') },
-      { path: '/signup', name: 'SignUp', component: () => import('pages/SignUp.vue') }
+      { path: '/signup', name: 'SignUp', component: () => import('pages/SignUp.vue') },
+      { path: '/todolist', name: 'todolist', component: () => import('pages/TodoList.vue') }
     ]
   }
 ]
