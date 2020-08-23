@@ -31,4 +31,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-src/router/index.js
+
