@@ -1,3 +1,6 @@
+#Link da versão Electron mais recente ( windows )
+http://www.mediafire.com/file/23be43c41a2o8pr/BLOG_v.1.3.rar/file
+
 # Blog-B
  
  Estou Desenvolvendo esse blog para aprender a utilizar e desenvolver com :
