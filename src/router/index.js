@@ -5,7 +5,7 @@ import firebase from 'firebase'
 
 Vue.use(VueRouter)
 var firebaseConfig = {
-//  your config firebase API
+
 }
 
 firebase.initializeApp(firebaseConfig)
