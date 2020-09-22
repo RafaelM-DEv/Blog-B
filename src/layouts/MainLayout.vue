@@ -32,7 +32,7 @@
             <q-btn  label="logout" @click="logout"/>
           </q-menu>
         </q-btn>
-        <q-badge class="q-ml-sm" outline color="red" label="v.1.3" />
+        <q-badge class="q-ml-sm" outline color="red" label="v.1.3.1" />
       </q-toolbar>
       <q-linear-progress dark :value="1"  color="red" class="q-mt-xs" />
     </q-header>
@@ -90,6 +90,12 @@ const menuList = [
   },
   {
     name: 'todolist',
+    icon: 'playlist_add_check',
+    label: 'TO-DO List',
+    separator: false
+  },
+  {
+    name: 'drag',
     icon: 'playlist_add_check',
     label: 'TO-DO List',
     separator: false

@@ -5,13 +5,13 @@
         <q-card dark bordered class="bg-grey-9  my-card">
         <q-card-section>
           <div class="text-h6">Nota do Dev</div>
-          <div class="text-subtitle2">by Rafael Martins</div>
+          <div class="text-subtitle2">- Rafael Martins</div>
         </q-card-section>
         <q-separator dark inset />
         <q-card-section>
-          Obrigrado por usar Meu SPA, ele serviu e ainda serve como um projeto base onde aprendi os primeiros conceitos sobre programação, espero que ele ainda seja utilizado como
-          base para futuras aplicações e consultas. Tenho que agradecer aqueles que me ajudaram muito e não deram tudo de mão beijada, me deixaram quebrar a cabeça na teoria e na prática
-          e hoje só tenho que agradecer por terem me mostrado o caminho e a oportuinidade.
+          Olá essa é uma versão de testes, ainda não possui relacionamentos de dados com o usuário, toda informação guardada está sendo salva localmente em um arquivo .json, estou trabanhando
+          muito pra lançar uma versão melhorada e com banco de dados integrado com relacionamento com o usuário logado. <br>
+          Aguardem atualizações!
         </q-card-section>
         <q-separator dark inset />
         <q-card-section>
