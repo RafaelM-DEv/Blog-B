@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import posts from './module/posts'
+import posts from './module/Posts'
 import user from './module/user'
 import todo from './module/Todo'
 
