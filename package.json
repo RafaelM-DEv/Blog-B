@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ./",
-    "Server": "json-server --watch db.json",
+    "server": "json-server --watch db.json",
     "e2e": "cypress open"
   },
   "dependencies": {

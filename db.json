@@ -19,11 +19,6 @@
   ],
   "todos": [
     {
-      "Text": "Fazer validações do usuário",
-      "done": false,
-      "id": 1
-    },
-    {
       "Text": "Definir restante das informações do usuário",
       "done": false,
       "id": 2
@@ -45,8 +40,18 @@
     },
     {
       "Text": "Fazer TODO lista com a Lib Sortable",
-      "done": false,
+      "done": true,
       "id": 6
+    },
+    {
+      "Text": "teste",
+      "done": true,
+      "id": 7
+    },
+    {
+      "Text": "teste",
+      "done": true,
+      "id": 8
     }
   ]
 }

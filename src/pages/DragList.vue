@@ -12,7 +12,7 @@
         </div>
         </div>
         <!-- done list -->
-        <div  class="fit">
+        <div class="fit">
           <div id="listWithHandle" class="text-center">Done List
             <div class="row justify-center" v-for="(item, index) in doneList" :key="index" >
               <div class="col-10 flex shadow-2 justify-between q-my-sm q-py-sm bg-grey-6" style="border-radius: 5px;">
