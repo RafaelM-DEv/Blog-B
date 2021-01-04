@@ -13,16 +13,11 @@
       "title": "TO-DO List",
       "description": "Criar um TO-DO list para nosso Blog",
       "image": "https://image.flaticon.com/icons/svg/1039/1039328.svg",
-      "content": "Criar um to-do list completo&nbsp;",
+      "content": "Criar um to-do list completo utilizando uma lib chamada Shortable",
       "id": 2
     }
   ],
   "todos": [
-    {
-      "Text": "Fazer validações do usuário",
-      "done": false,
-      "id": 1
-    },
     {
       "Text": "Definir restante das informações do usuário",
       "done": false,
@@ -37,6 +32,26 @@
       "Text": "ajustar responsividade dos novos elementos",
       "done": false,
       "id": 4
+    },
+    {
+      "Text": "criar relacionamento dos dados ",
+      "done": false,
+      "id": 5
+    },
+    {
+      "Text": "Fazer TODO lista com a Lib Sortable",
+      "done": true,
+      "id": 6
+    },
+    {
+      "Text": "teste",
+      "done": true,
+      "id": 7
+    },
+    {
+      "Text": "teste",
+      "done": true,
+      "id": 8
     }
   ]
 }
